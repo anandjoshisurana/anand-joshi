@@ -1,59 +1,901 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ANAND</title>
+  <meta charset="UTF-8" />
+  <title>Anand Joshi - Official Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Basic SEO -->
+  <meta name="description" content="Official personal website of Anand Joshi. A simple space to know who I am, what I believe in and how to connect with me.">
+  <meta name="keywords" content="Anand Joshi, Anand Surana, anand_surana_16, personal website, India">
+  <meta name="author" content="Anand Joshi">
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     body {
-      height: 100vh;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+      color: #e5e7eb;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(2, 6, 23, 0.9);
+      border-bottom: 1px solid rgba(30, 64, 175, 0.6);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 2px solid #38bdf8;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #050816;
-      font-family: "Poppins", sans-serif;
-    }
-
-    .name {
-      font-size: 80px;
-      letter-spacing: 12px;
+      font-size: 14px;
       font-weight: 700;
-      text-transform: uppercase;
-      color: #ffffff;
-      text-shadow:
-        0 0 5px #ffffff,
-        0 0 15px #00e5ff,
-        0 0 30px #00e5ff,
-        0 0 60px #00e5ff;
-      animation: glow 2s ease-in-out infinite alternate;
+      color: #e5e7eb;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
     }
 
-    @keyframes glow {
-      from {
-        text-shadow:
-          0 0 5px #ffffff,
-          0 0 10px #00e5ff,
-          0 0 20px #00e5ff,
-          0 0 40px #00e5ff;
-        transform: scale(1);
+    .logo-text {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s, transform 0.12s;
+      color: #cbd5f5;
+    }
+
+    .nav-links a:hover {
+      background: #0f172a;
+      color: #f9fafb;
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid rgba(56, 189, 248, 0.9);
+      color: #e0f2fe;
+      background: radial-gradient(circle at top left, #0ea5e9 0, #22c55e 80%);
+      background-size: 200% 200%;
+      animation: btnGlow 6s ease-in-out infinite alternate;
+      box-shadow: 0 15px 40px rgba(34, 197, 94, 0.25);
+    }
+
+    @keyframes btnGlow {
+      from { background-position: 0% 0%; }
+      to   { background-position: 100% 100%; }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
       }
-      to {
-        text-shadow:
-          0 0 10px #ffffff,
-          0 0 20px #00e5ff,
-          0 0 40px #00e5ff,
-          0 0 80px #00e5ff;
-        transform: scale(1.05);
+      .nav-links {
+        justify-content: flex-start;
       }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 26px 16px 60px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 72vh;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 32px;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 40px);
+      margin-bottom: 8px;
+    }
+
+    .hero span.name-highlight {
+      color: #38bdf8;
+      text-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
+      white-space: nowrap;
+    }
+
+    .hero-role {
+      font-size: 16px;
+      color: #a5b4fc;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      color: #9ca3af;
+      font-size: 14px;
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .hero-actions {
+        justify-content: center;
+      }
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.2s, border-color 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 16px 40px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 52px rgba(34, 197, 94, 0.45);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+
+    .btn-ghost:hover {
+      background: #020617;
+      transform: translateY(-1px);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .hero-badge {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-badge a {
+      color: #38bdf8;
+      font-weight: 500;
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      width: 100%;
+      max-width: 330px;
+      background: radial-gradient(circle at top, #1f2937, #020617);
+      border-radius: 26px;
+      padding: 22px 18px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.4), transparent 70%);
+      top: -40px;
+      right: -60px;
+      filter: blur(6px);
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 999px;
+      border: 2px solid rgba(56, 189, 248, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: 700;
+      color: #e5e7eb;
+      background: radial-gradient(circle at top, #020617, #0b1120);
+    }
+
+    .profile-main-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .profile-main-role {
+      font-size: 12px;
+      color: #c4b5fd;
+    }
+
+    .profile-tagline {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .profile-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.85), transparent);
+      margin: 12px 0 10px;
+    }
+
+    .profile-meta {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .profile-meta span {
+      color: #e5e7eb;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+
+    .profile-tags span {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+    }
+
+    .profile-footer {
+      margin-top: 12px;
+      font-size: 11px;
+      color: #9ca3af;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+      margin-right: 4px;
+    }
+
+    /* Sections */
+    section {
+      padding: 44px 0 22px;
+    }
+
+    section h2 {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #020617, #020617, #020617);
+      border-radius: 20px;
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+    }
+
+    .card-title {
+      font-size: 15px;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .card-sub {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #e5e7eb;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 13px;
+      color: #e5e7eb;
+    }
+
+    .card ul li {
+      margin-bottom: 6px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: #e5e7eb;
+    }
+
+    /* Quote block */
+    .quote-block {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      font-size: 13px;
+    }
+
+    .quote-text {
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+
+    .quote-author {
+      text-align: right;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* Beliefs / cards */
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .three-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-card label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .contact-card input,
+    .contact-card textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 13px;
+      outline: none;
+      resize: vertical;
+      min-height: 38px;
+    }
+
+    .contact-card input:focus,
+    .contact-card textarea:focus {
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.5);
+    }
+
+    .contact-info {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .contact-info p {
+      margin-bottom: 8px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .social-links a {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .social-links a:hover {
+      border-color: #22c55e;
+    }
+
+    /* CTA strip */
+    .bottom-cta {
+      margin-top: 36px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(56, 189, 248, 0.8);
+      background: radial-gradient(circle at left, rgba(56, 189, 248, 0.18), transparent 60%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .bottom-cta strong {
+      color: #e5e7eb;
+    }
+
+    .bottom-cta button {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.9);
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .bottom-cta button:hover {
+      background: #0b1120;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(30, 64, 175, 0.7);
+      padding: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+      background: #020617;
+    }
+
+    footer span {
+      color: #e5e7eb;
+    }
+
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: #a5b4fc;
+      margin-top: 6px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-<div class="name">ANAND JOSHI</div>
+  <!-- Navbar -->
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <div class="logo-mark">AJ</div>
+        <div>
+          <div class="logo-text">ANAND JOSHI</div>
+          <div class="logo-sub">Personal space on the web</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#beliefs">Beliefs</a>
+        <a href="#contact">Contact</a>
+        <a href="https://instagram.com/anand_surana_16" target="_blank" class="nav-cta">
+          Instagram · @anand_surana_16
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Welcome to my personal website</span>
+        </div>
+        <h1>
+          Hi, I’m <span class="name-highlight">Anand Joshi</span>
+        </h1>
+        <div class="hero-role">
+          A normal person with simple dreams, clear thinking and a love for growth.
+        </div>
+        <p class="hero-sub">
+          Ye website बस ek chhoti si जगह है jahan aap mujhe थोड़ा जान सकते हैं –  
+          मैं कैसा सोचता हूँ, क्या believe करता हूँ और life ko kis tarah dekhna पसंद करता हूँ.
+        </p>
+        <div class="hero-actions">
+          <a href="#about" class="btn-primary">Know more about me</a>
+          <a href="https://instagram.com/anand_surana_16" target="_blank" class="btn-ghost">
+            Follow on Instagram
+          </a>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge">Calm mindset</div>
+          <div class="hero-badge">Self growth</div>
+          <div class="hero-badge">
+            Instagram:
+            <a href="https://instagram.com/anand_surana_16" target="_blank">@anand_surana_16</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="profile-card">
+          <div class="glow"></div>
+          <div class="profile-top">
+            <div class="profile-avatar">AJ</div>
+            <div>
+              <div class="profile-main-name">Anand Joshi</div>
+              <div class="profile-main-role">Learning · Growing · Observing</div>
+              <div class="profile-tagline">
+                I like simple things, honest people and peaceful progress.
+              </div>
+            </div>
+          </div>
+          <div class="profile-line"></div>
+          <div class="profile-meta">
+            Country: <span>India</span><br />
+            Current focus: <span>Self improvement, discipline and better thinking</span>
+          </div>
+          <div class="profile-tags">
+            <span>Calm attitude</span>
+            <span>Positive mindset</span>
+            <span>Family & values</span>
+            <span>Gratitude</span>
+          </div>
+          <div class="profile-footer">
+            <div>
+              <span class="status-dot"></span>
+              Always open to good conversations
+            </div>
+            <div>
+              Find me on Instagram: <strong>@anand_surana_16</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About Anand Joshi</h2>
+      <p class="section-sub">
+        Thoda सा introduction – simple words me, jaisa main hoon waisa.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Who I am</div>
+          <div class="card-sub">Short personal introduction</div>
+          <p>
+            मेरा नाम <strong>Anand Joshi</strong> है. Main ek aisa इंसान हूँ jise  
+            shor–sharaba se zyada शांति, दिखावे se zyada simplicity aur  
+            time-pass se zyada meaningful baatein pasand hain.
+          </p>
+          <br />
+          <p>
+            Mujhe apne time ko value देना पसंद है – chahe वो family ke साथ हो,  
+            kuch naya सीखते हुए ho ya बस khud ke thoughts ke saath quiet time ho.  
+            Main life ko ek long journey ki तरह देखता हूँ jahan रोज़ थोड़ा better बनना hi जीत है.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">How I see life</div>
+          <div class="card-sub">Mindset & thinking</div>
+          <ul>
+            <li>
+              <span class="bullet"></span>
+              <span>मैं मानता हूँ ki छोटे-छोटे अच्छे decisions मिलकर life को बेहतर बनाते हैं.</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Respect, honesty और loyalty – ये तीन cheezein mere liye bahut important हैं.</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>मैं unnecessarily over-showoff से दूर रहता हूँ, simple aur real cheezein ज्यादा पसंद हैं.</span>
+            </li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Simplicity</span>
+            <span class="chip">Consistency</span>
+            <span class="chip">Respect</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal line + name -->
+      <div class="quote-block">
+        <div class="quote-text">
+          “Main perfect nahi hoon, lekin रोज़ थोड़ा better बनने की कोशिश जरूर karta hoon –
+          apne liye bhi, aur apne आसपास ke logon ke liye bhi.”
+        </div>
+        <div class="quote-author">– Anand Joshi</div>
+      </div>
+    </section>
+
+    <!-- Beliefs / personal values -->
+    <section id="beliefs">
+      <h2>What I believe in</h2>
+      <p class="section-sub">
+        Kuch simple बातें jo main follow karne ki कोशिश karta hoon – हर दिन, धीरे-धीरे.
+      </p>
+      <div class="three-grid">
+        <div class="card">
+          <div class="card-title">Grow silently</div>
+          <div class="card-sub">Kam bolo, zyada kar ke dikhाओ</div>
+          <p>
+            Mujhe loud announcements se zyada silent progress pasand hai.
+            Jo bhi सीख रहा हूँ ya kar raha हूँ, uska result apne आप बोले –
+            यह कोशिश रहती है.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">Value your people</div>
+          <div class="card-sub">Family, friends, real connections</div>
+          <p>
+            Life में sabse important cheez log hi होते हैं.  
+            Main unhi रिश्तों ko importance देता hoon jo सच में care karte हैं –
+            jahan respect dono तरफ se हो.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">Stay grounded</div>
+          <div class="card-sub">Zameen se juda rehna</div>
+          <p>
+            Jo bhi मिले – success, comfort ya appreciation – main याद रखता hoon  
+            ki sab temporary hai. Grounded rehna, shukrगुज़ार rehna aur सीखते rehना
+            hi main value karta hoon.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Connect with me</h2>
+      <p class="section-sub">
+        Agar aapko बस “Hi” bolना ho, koi baat share करनी ho  
+        ya बस connect होना हो – aap yahan se message छोड सकते हैं.
+      </p>
+      <div class="contact-grid">
+        <div class="card contact-card">
+          <div class="card-title">Send a message</div>
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+            <div>
+              <label>Your Name</label>
+              <input type="text" placeholder="Enter your name" />
+            </div>
+            <div>
+              <label>Contact (Email / Phone)</label>
+              <input type="text" placeholder="Enter your contact" />
+            </div>
+            <div>
+              <label>Message</label>
+              <textarea rows="3" placeholder="Write your message here..."></textarea>
+            </div>
+            <button class="btn-primary" type="button">
+              Submit (Demo only)
+            </button>
+          </div>
+        </div>
+        <div class="card contact-info">
+          <div class="card-title">Direct details</div>
+          <p><strong>Name:</strong> Anand Joshi</p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/anand_surana_16" target="_blank">@anand_surana_16</a></p>
+          <p><strong>City:</strong> [Your City], India</p>
+          <p><strong>Email:</strong> yourname@gmail.com</p>
+          <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
+
+          <div class="card-sub" style="margin-top: 10px;">Social links</div>
+          <div class="social-links">
+            <a href="https://instagram.com/anand_surana_16" target="_blank">Instagram · @anand_surana_16</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-cta">
+        <div>
+          <strong>Thanks for visiting my little corner on the internet.</strong><br />
+          Kabhi bhi लगे ki humari thinking milti है – feel free to say hello on Instagram.
+        </div>
+        <button onclick="window.open('https://instagram.com/anand_surana_16', '_blank')">
+          Open Instagram
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> <span>Anand Joshi</span> · All Rights Reserved
+    <div class="top-link" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+      ↑ Back to top
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
