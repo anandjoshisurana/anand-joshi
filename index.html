@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ANAND</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #050816;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .name {
+      font-size: 80px;
+      letter-spacing: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow:
+        0 0 5px #ffffff,
+        0 0 15px #00e5ff,
+        0 0 30px #00e5ff,
+        0 0 60px #00e5ff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow:
+          0 0 5px #ffffff,
+          0 0 10px #00e5ff,
+          0 0 20px #00e5ff,
+          0 0 40px #00e5ff;
+        transform: scale(1);
+      }
+      to {
+        text-shadow:
+          0 0 10px #ffffff,
+          0 0 20px #00e5ff,
+          0 0 40px #00e5ff,
+          0 0 80px #00e5ff;
+        transform: scale(1.05);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="name">ANAND</div>
+</body>
+</html>
